@@ -1,0 +1,43 @@
+.task {
+	position: relative;
+	padding: 1rem 0;
+	border-top: 1px solid $lightgray;
+
+	&:last-of-type {
+		border-bottom: 1px solid $lightgray;
+	}
+
+	.check-mark {
+		position: relative;
+		top: 3px;
+		margin-right: 2rem;
+		cursor: pointer;
+
+		&:hover path {
+			fill: white;
+		}
+
+		&:hover circle {
+			stroke: $green;
+			fill: $green;
+		}
+	}
+
+	.trash-can {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		cursor: pointer;
+
+		&:hover path {
+			fill: $red;
+		}
+	}
+
+	.text {
+		display: inline-block;
+		color: white;
+		font-size: 1.6rem;
+	}
+}
