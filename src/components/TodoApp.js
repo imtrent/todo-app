@@ -19,6 +19,12 @@ export default class TodoApp extends React.Component {
 		}));
 	};
 
+	handleDeleteTask = (taskToRemove) => {
+		this.setState((prevState) => ({
+			tasks: prevState.tasks.filter((task) => taskToRemove !== task)
+		}));
+	};
+
 	render() {
 		return (
 			<div className="container">
@@ -29,6 +35,7 @@ export default class TodoApp extends React.Component {
 				/>
 				<Tasks 
 				tasks={this.state.tasks}
+				handleDeleteTask={this.handleDeleteTask}
 				/>
 			</div>
 		);

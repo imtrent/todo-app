@@ -8,6 +8,7 @@ const Tasks = (props) => (
 				<Task
 					key={item}
 					taskText={item}
+					handleDeleteTask={props.handleDeleteTask}
 				/>
 			))
 		}
