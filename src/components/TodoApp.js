@@ -1,6 +1,6 @@
 import React from 'react';
-import AddTask from './AddTask';
 import Tasks from './Tasks';
+import Header from './Header';
 
 export default class TodoApp extends React.Component {
 	state = {
@@ -22,8 +22,10 @@ export default class TodoApp extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<AddTask 
-				handleAddTask={this.handleAddTask}
+				<Header 
+					handleAddTask={this.handleAddTask}
+					tasks={this.state.tasks}
+					date={this.getCurrentDate}
 				/>
 				<Tasks 
 				tasks={this.state.tasks}
