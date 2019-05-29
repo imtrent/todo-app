@@ -3,6 +3,7 @@ import Task from './Task';
 
 const Tasks = (props) => (
 	<div className="tasks">
+	{props.tasks.length === 0 && <p className="no-tasks">You currently have <span className="blue">0</span> tasks. Add a task to get started!</p>}
 		{
 			props.tasks.map((item, index) => (
 				<Task
