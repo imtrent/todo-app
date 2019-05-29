@@ -2,7 +2,7 @@ import React from 'react';
 import Task from './Task';
 
 const Tasks = (props) => (
-	<div>
+	<div className="tasks">
 		{
 			props.tasks.map((item, index) => (
 				<Task
