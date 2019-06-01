@@ -4,6 +4,23 @@
 	padding-bottom: 4rem;
 	border-bottom: 1px solid $lightgray;
 
+	.nav {
+		.nav-link {
+			font-size: 1.6rem;
+			color: $lightgray;
+			text-decoration: none;
+			margin-right: 5rem;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			&--active {
+				color: white;
+			}
+		}
+	}
+
 	p {
 		margin: 0;
 	}
@@ -18,5 +35,6 @@
 	.number-of-tasks {
 		color: $primary-blue;
 		font-size: 1.2rem;
+		margin-bottom: 2rem;
 	}
 }
