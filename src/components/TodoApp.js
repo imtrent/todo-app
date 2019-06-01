@@ -1,7 +1,8 @@
 import React from 'react';
-import Tasks from './Tasks';
-import CompletedTasks from './CompletedTasks';
+import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 import Header from './Header';
+import IncompleteTasks from './IncompleteTasks';
+import CompletedTasks from './CompletedTasks';
 
 export default class TodoApp extends React.Component {
 	state = {
@@ -43,20 +44,31 @@ export default class TodoApp extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<Header 
-					tasks={this.state.tasks}
-					handleAddTask={this.handleAddTask}
-				/>
-				<Tasks 
-					tasks={this.state.tasks}
-					completedTasks={this.state.completedTasks}
-					handleDeleteTask={this.handleDeleteTask}
-					handleCompleteTask={this.handleCompleteTask}
-				/>
-				{/* <CompletedTasks 
-					completedTasks={this.state.completedTasks}
-					handleDeleteTask={this.handleDeleteTask}
-				/> */}
+				<BrowserRouter>
+					<div>
+						<Header
+							tasks={this.state.tasks}
+							handleAddTask={this.handleAddTask}
+						/>
+						<Switch>
+							<Route path="/" render={props => 
+								<IncompleteTasks 
+									tasks={this.state.tasks}
+									handleDeleteTask={this.handleDeleteTask} 
+									handleCompleteTask={this.handleCompleteTask} 
+								/>} 
+								exact={true}
+							/>
+							<Route path="/completed" render={props =>
+								<CompletedTasks
+									completedTasks={this.state.completedTasks}
+									handleDeleteTask={this.handleDeleteTask}
+								/>}
+								exact={true}
+							/>
+						</Switch>
+					</div>
+				</BrowserRouter>
 			</div>
 		);
 	}

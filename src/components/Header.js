@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import AddTask from './AddTask';
 
 const now = new Date();
@@ -9,17 +10,23 @@ const currentDay = now.getDate();
 const currentDayOfWeek = days[now.getDay()];
 const currentMonth = months[now.getMonth()];
 
-const exactDate = `${currentDayOfWeek} ${currentMonth}, ${currentDay}`
+const exactDate = `${currentDayOfWeek}, ${currentMonth} ${currentDay}`
 
 const Header = (props) => (
 	<div className="header">
 		<div>
-			<p className="date">{exactDate}</p>
-			<p className="number-of-tasks">{props.tasks.length} Active Tasks</p>
+			<div>
+				<p className="date">{exactDate}</p>
+				<p className="number-of-tasks">{props.tasks.length} Active Tasks</p>
+			</div>
+			<AddTask 
+				handleAddTask={props.handleAddTask}
+			/>
 		</div>
-		<AddTask 
-			handleAddTask={props.handleAddTask}
-		/>
+		<div className="nav">
+			<NavLink to="/" className="nav-link" activeClassName="nav-link--active" exact={true}>Incomplete Tasks</NavLink>
+			<NavLink to="/completed" className="nav-link" activeClassName="nav-link--active">Completed Tasks</NavLink>
+		</div>
 	</div>
 );
 
