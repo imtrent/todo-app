@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import IncompleteTasks from './IncompleteTasks';
 import CompletedTasks from './CompletedTasks';
