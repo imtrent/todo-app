@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class AddTask extends React.Component {r
+export default class AddTask extends React.Component {
 	state = {
 		err: undefined
 	};
