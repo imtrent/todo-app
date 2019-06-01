@@ -41,6 +41,13 @@ export default class TodoApp extends React.Component {
 		}
 	};
 
+	handleRecoverTask = (taskToRecover) => {
+		this.setState((prevState) => ({
+			completedTasks: prevState.completedTasks.filter((task) => taskToRecover !== task),
+			tasks: prevState.tasks.concat(taskToRecover)
+		}));
+	};
+
 	render() {
 		return (
 			<div className="container">
@@ -63,8 +70,8 @@ export default class TodoApp extends React.Component {
 								<CompletedTasks
 									completedTasks={this.state.completedTasks}
 									handleDeleteTask={this.handleDeleteTask}
+									handleRecoverTask={this.handleRecoverTask}
 								/>}
-								exact={true}
 							/>
 						</Switch>
 					</div>

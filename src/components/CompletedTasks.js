@@ -4,8 +4,12 @@ const CompletedTasks = (props) => (
 	<div className="tasks">
 		{
 			props.completedTasks.map((task, index) => (
-				<div className="task">
-					<svg className="check-mark check-mark--completed" xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none">
+				<div className="task" key={index}>
+					<svg 
+					onClick={(e) => {
+						props.handleRecoverTask(task);
+					}}
+					className="check-mark check-mark--completed" xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none">
 				  		<circle cx="9.5" cy="9.5" r="9" stroke="#8D9196"/>
 				  		<path fill="#8D9196" d="M14 6.5a.6.6 0 0 0-.7 0l-5 4.9-2.6-2.6a.6.6 0 0 0-.7.8l3 3a.6.6 0 0 0 .7 0L14 7.1c.3-.2.3-.5 0-.7z"/>
 					</svg>
