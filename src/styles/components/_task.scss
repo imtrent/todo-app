@@ -32,13 +32,21 @@
 				stroke: $green;
 				fill: $green;
 			}
+			&--completed {
+				path {
+					fill: white;
+				}
+				circle {
+					stroke: $green;
+					fill: $green;
+				}
+			}
 		}
 
 		.trash-can {
 			position: absolute;
 			top: 50%;
 			right: 0;
-			transform: translateY(-50%);
 			cursor: pointer;
 
 			&:hover path {
@@ -46,10 +54,31 @@
 			}
 		}
 
+		.recover {
+			position: relative;
+			top: 3px;
+			width: 18px;
+			height: 18px;
+			margin-right: 2rem;
+			cursor: pointer;
+			path {
+				fill: $lightgray;				
+			}
+
+			&:hover path {
+				fill: $primary-blue;
+			}
+		}
+
 		.text {
 			display: inline-block;
 			color: white;
 			font-size: 1.6rem;
+
+			&--completed {
+				color: $lightgray;
+				text-decoration: line-through;
+			}
 		}
 	}
 }

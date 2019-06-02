@@ -5,13 +5,14 @@ const CompletedTasks = (props) => (
 		{
 			props.completedTasks.map((task, index) => (
 				<div className="task" key={index}>
-					<svg 
-					onClick={(e) => {
-						props.handleRecoverTask(task);
-					}}
-					className="check-mark check-mark--completed" xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none">
-				  		<circle cx="9.5" cy="9.5" r="9" stroke="#8D9196"/>
-				  		<path fill="#8D9196" d="M14 6.5a.6.6 0 0 0-.7 0l-5 4.9-2.6-2.6a.6.6 0 0 0-.7.8l3 3a.6.6 0 0 0 .7 0L14 7.1c.3-.2.3-.5 0-.7z"/>
+					<svg
+						onClick={(e) => {
+							props.handleRecoverTask(task);
+						}}
+						className="recover"
+						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+						<path d="M154.7 213.3H16a16 16 0 0 1-16-16V58.7a16 16 0 0 1 32 0v122.6h122.7a16 16 0 0 1 0 32zm0 0"/>
+						<path d="M256 512a254.1 254.1 0 0 1-181-75 16 16 0 1 1 22.7-22.7A222.3 222.3 0 0 0 256 480c123.5 0 224-100.5 224-224S379.5 32 256 32C150.1 32 55.7 103.1 31.6 201.2a16 16 0 1 1-31.1-7.7C28.2 81.4 135.6 0 256 0c141.2 0 256 114.8 256 256S397.2 512 256 512zm0 0"/>
 					</svg>
 					<p className="text text--completed">{task}</p>
 					<svg 
@@ -27,5 +28,5 @@ const CompletedTasks = (props) => (
 		}
 	</div>
 );
-
+// check-mark check-mark--completed
 export default CompletedTasks;
