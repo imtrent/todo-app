@@ -48,10 +48,10 @@ export default class TodoApp extends React.Component {
 		}));
 	};
 
-	componentDidMount() {
+	 componentDidMount() {
 		try {
-			const tasksJson = local.Storage.getItem('tasks');
-			const completedJson = local.Storage.getItem('completedTasks');
+			const tasksJson = localStorage.getItem('tasks');
+			const completedJson = localStorage.getItem('completedTasks');
 			const tasks = JSON.parse(tasksJson);
 			const completed = JSON.parse(completedJson);
 
@@ -74,7 +74,7 @@ export default class TodoApp extends React.Component {
         }
 
         if (prevState.completedTasks.length !== this.state.completedTasks.length) {
-            const completedJson = JSON.stringify(this.completedTasks.tasks);
+            const completedJson = JSON.stringify(this.state.completedTasks);
             localStorage.setItem('completedTasks', completedJson);
         }
 	}
