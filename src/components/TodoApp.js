@@ -48,6 +48,41 @@ export default class TodoApp extends React.Component {
 		}));
 	};
 
+	componentDidMount() {
+		try {
+			const tasksJson = local.Storage.getItem('tasks');
+			const completedJson = local.Storage.getItem('completedTasks');
+			const tasks = JSON.parse(tasksJson);
+			const completed = JSON.parse(completedJson);
+
+			if (tasks) {
+				this.setState(() => ({ tasks }));
+			}
+
+			if (completed) {
+				this.setState(() => ({ completed }));
+			}
+		} catch (e) {
+			// Do Nothing
+		}
+	}
+
+	componentDidUpdate(prevPros, prevState) {
+		if (prevState.tasks.length !== this.state.tasks.length) {
+            const tasksJson = JSON.stringify(this.state.tasks);
+            localStorage.setItem('tasks', tasksJson);
+        }
+
+        if (prevState.completedTasks.length !== this.state.completedTasks.length) {
+            const completedJson = JSON.stringify(this.completedTasks.tasks);
+            localStorage.setItem('completedTasks', completedJson);
+        }
+	}
+
+	componentWillUnmount() {
+        console.log('component will unmount');
+    }
+
 	render() {
 		return (
 			<div className="container">
@@ -55,6 +90,8 @@ export default class TodoApp extends React.Component {
 					<div>
 						<Header
 							tasks={this.state.tasks}
+							completedTasks={this.state.completedTasks}
+							location={window.location.pathname}
 							handleAddTask={this.handleAddTask}
 						/>
 						<Switch>
