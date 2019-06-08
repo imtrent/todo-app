@@ -53,14 +53,14 @@ export default class TodoApp extends React.Component {
 			const tasksJson = localStorage.getItem('tasks');
 			const completedJson = localStorage.getItem('completedTasks');
 			const tasks = JSON.parse(tasksJson);
-			const completed = JSON.parse(completedJson);
+			const completedTasks = JSON.parse(completedJson);
 
 			if (tasks) {
 				this.setState(() => ({ tasks }));
 			}
 
-			if (completed) {
-				this.setState(() => ({ completed }));
+			if (completedTasks) {
+				this.setState(() => ({ completedTasks }));
 			}
 		} catch (e) {
 			// Do Nothing
